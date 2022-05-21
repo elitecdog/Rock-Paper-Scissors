@@ -1,2 +1,2 @@
 # Rock-Paper-Scissors
-A simple rock paper scissors game that can be played in a web browser console using javascript.
+A simple rock paper scissors game that can be played in a web browser console using javascript.  The default game cycle is a best of 5, where the user is prompted to input either rock paper or scissors 5 times.  After each prompt a message is displayed telling them whether they won or lost that round.  After either the user/computer reaches 3 wins, or 5 rounds are played the final score is displayed along with whether or not you won, lost, or drew the best of 5.
