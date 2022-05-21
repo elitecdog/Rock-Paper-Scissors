@@ -13,7 +13,66 @@ function computerPlay() {
         return "Error";
     }
 }
-function rockPaperScissors(playerSelection, computerSelection) {
+function playRound(playerSelection, computerSelection) {
+    let playerSelection2 = playerSelection.toLowerCase();
+    let computerSelection2 = computerSelection.toLowerCase();
+    if(playerSelection2 == "rock" && computerSelection2=="scissors"){
+        return 1;
+    }
+    else if(playerSelection2 == "paper" && computerSelection2=="rock"){
+        return 1;
+    }
+    else if(playerSelection2 == "scissors" && computerSelection2=="paper"){
+        return 1;
+    }
+    else if(playerSelection2 == computerSelection2) {
+        return 0;
+    }
+    else if(computerSelection2 == "rock" && playerSelection2=="scissors"){
+        return -1;
+    }
+    else if(computerSelection2 == "paper" && playerSelection2=="rock"){
+        return -1;
+    }
+    else if(computerSelection2 == "scissors" && playerSelection2=="paper"){
+        return -1;
+    }
+}
+function game(){
+    let userWins=0;
+    let computerWins=0;
+    for(let i=0; i<5; i++) {
+        let result = playRound(prompt("Choose rock, paper, or scissors"),computerPlay());
+        if(result == 1){
+            userWins+=1;
+            console.log("You won that round");
+        }
+        else if(result == -1){
+            computerWins+=1;
+            console.log("You lost that round");
+        }
+        else if(result == 0){
+            console.log("You drew that round");
+        }
+        if(userWins == 3) {
+            return "You win! The score was " + userWins + " - " + computerWins + " in your favor!";
+        }
+        else if(computerWins == 3) {
+            return "You lose! The score was " + userWins + " - " + computerWins + " in the computers favor!";
+        }
+    }
+    if(userWins>computerWins) {
+        return "You win! The score was " + userWins + " - " + computerWins + " in your favor!";
+    }
+    else if(computerWins>userWins) {
+        return "You lose! The score was " + userWins + " - " + computerWins + " in the computers favor!";
+    }
+    else if(computerWins == userWins) {
+        return "It's a draw! The score was " + userWins + " - " + computerWins + ".";
+    }
+}
+console.log(game());
+/*function playRound(playerSelection, computerSelection) {
     let playerSelection2 = playerSelection.toLowerCase();
     let computerSelection2 = computerSelection.toLowerCase();
     if(playerSelection2 == "rock" && computerSelection2=="scissors"){
@@ -38,3 +97,4 @@ function rockPaperScissors(playerSelection, computerSelection) {
         return "You Lose! Scissors beats paper!";
     }
 }
+*/
