@@ -1,6 +1,7 @@
 
-/** Things Left To Do:  Create A Reset Button.  Update css to make the page
- * presentable.  
+/** Things Left To Do:  Create A Reset Button.  Add a round counter by 
+ * the soreboard.
+ *   Update css to make the page presentable.  
  */
 let userWins=0;
 let computerWins=0;
@@ -10,12 +11,16 @@ let globalPlayerSelect = "";
 const rock = document.getElementById('rock');
 const paper = document.getElementById('paper');
 const scissors = document.getElementById('scissors');
+const reset = document.getElementById('reset');
 rock.addEventListener("click", playRoundRock);
 paper.addEventListener("click", playRoundPaper);
 scissors.addEventListener("click", playRoundScissors);
+reset.addEventListener("click", resetGame);
 const roundUpdate = document.querySelector('.roundUpdate');
 
-
+function resetGame() {
+    location.reload();
+}
 
 function playRoundRock() {
     function computerPlay() {
@@ -121,6 +126,7 @@ function game(result){
     const p1Score = document.querySelector('#userScore');
     const compScore = document.querySelector('#computerScore');
     const finalMessage = document.querySelector('.finalMessage');
+    const roundCount = document.querySelector('#roundCount');
         if(result == 1){
             userWins+=1;
             p1Score.innerHTML = userWins;
@@ -128,6 +134,7 @@ function game(result){
             globalPlayerSelect + " and the computer picked  " + globalCompSelection
             + ".";
             roundCounter+=1;
+            roundCount.innerHTML = roundCounter;
         }
         else if(result == -1){
             computerWins+=1;
@@ -136,12 +143,14 @@ function game(result){
             globalPlayerSelect + " and the computer picked  " + globalCompSelection
             + ".";
             roundCounter+=1;
+            roundCount.innerHTML = roundCounter;
         }
         else if(result == 0){
             roundUpdate.innerHTML = "You drew that round.  You picked " +
             globalPlayerSelect + " and the computer picked  " + globalCompSelection
             + ".";
             roundCounter+=1;
+            roundCount.innerHTML = roundCounter;
         }
         if(userWins == 3) {
             finalMessage.innerHTML = "You Win!  The score was "
