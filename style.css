@@ -1,0 +1,51 @@
+* {
+    margin:0;
+    padding:0;
+    background-color:black;
+    color:white;
+}
+.body {
+    display:flex;
+    flex-direction:column;
+}
+.buttonContainer {
+    display:flex;
+    flex-direction:row;
+    gap:4%;
+    justify-content:flex-start;
+    margin:20%;
+}
+.buttons {
+    font-size:16px;
+    color:white;
+    background-color:rgb(72, 7, 92);
+}
+.headerText {
+    font-size:32px;
+    color:white;
+    display:flex;
+}
+.header {
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:16px;
+    margin:16px;
+}
+.score {
+    display:flex;
+    flex-direction:row;
+    gap:32px;
+    justify-content:center;
+}
+.user {
+    display:flex;
+    flex-direction:column;
+    gap:12px;
+}
+#userScore {
+    display:flex;
+}
+#computerScore {
+    display:flex;
+}
